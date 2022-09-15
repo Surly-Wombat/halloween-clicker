@@ -11,7 +11,7 @@ document.getElementById("addButton").onclick = function() {
 
 function displayScore() {
   score = Math.round(internalScore);
-  document.getElementById("counter").innerHTML = score;
+  document.getElementById("counter").innerHTML = internalScore;
 }
 
 function add() {
