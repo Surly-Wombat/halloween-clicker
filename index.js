@@ -20,7 +20,7 @@ function add() {
 }
 
 function autoAdd() {
-  let addTenth = perSecond / 10;
+  let addTenth = (perSecond / 10);
   internalScore += addTenth;
   displayScore();
 }
