@@ -1,1 +1,7 @@
+button {
+  display: none;
+}
 
+#addButton {
+  display: inline;
+}
