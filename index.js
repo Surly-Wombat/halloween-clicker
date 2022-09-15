@@ -3,7 +3,7 @@ let internalScore = 0;
 let perClick = 1;
 let perSecond = 2;
 
-setInterval(autoAdd,100)
+setInterval(autoAdd,1);
 
 document.getElementById("addButton").onclick = function() {
   add();
@@ -20,7 +20,7 @@ function add() {
 }
 
 function autoAdd() {
-  let addTenth = (perSecond / 10);
+  let addTenth = perSecond;
   internalScore += addTenth;
   displayScore();
 }
