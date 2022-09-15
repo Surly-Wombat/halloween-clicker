@@ -1,9 +1,9 @@
 let score = 0;
 let internalScore = 0;
 let perClick = 1;
-let perSecond = 200;
+let perSecond = 2;
 
-window.setInterval(autoAdd,1);
+let loop = window.setInterval(autoAdd,100);
 
 document.getElementById("addButton").onclick = function() {
   add();
@@ -11,7 +11,7 @@ document.getElementById("addButton").onclick = function() {
 
 function displayScore() {
   score = Math.round(internalScore);
-  document.getElementById("counter").innerHTML = internalScore;
+  document.getElementById("counter").innerHTML = score;
 }
 
 function add() {
@@ -20,7 +20,7 @@ function add() {
 }
 
 function autoAdd() {
-  let addTenth = perSecond;
+  let addTenth = (perSecond / 10);
   internalScore += addTenth;
   displayScore();
 }
