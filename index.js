@@ -29,6 +29,6 @@ function autoAdd() {
 
 function checkUnlocks() {
   if(internalScore >= 20) {
-    
+    document.getElementById("testButton").style.display = "inline";
   }
 }
