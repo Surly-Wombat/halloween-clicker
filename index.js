@@ -6,7 +6,7 @@ let perSecond = 2;
 window.setInterval(autoAdd,100);
 
 document.getElementById("addButton").onclick = function() {
-  autoAdd();
+  add();
 }
 
 function displayScore() {
