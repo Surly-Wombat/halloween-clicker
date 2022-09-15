@@ -23,5 +23,12 @@ function add() {
 function autoAdd() {
   let addHundredth = (perSecond / 100);
   internalScore += addHundredth;
+  checkUnlocks();
   displayScore();
+}
+
+function checkUnlocks() {
+  if(internalScore >= 20) {
+    
+  }
 }
