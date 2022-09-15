@@ -11,6 +11,7 @@ document.getElementById("addButton").onclick = function() {
 
 function displayScore() {
   score = Math.round(internalScore);
+  score = score.toLocaleString("en-US")
   document.getElementById("counter").innerHTML = score;
 }
 
