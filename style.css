@@ -2,6 +2,18 @@ button {
   display: none;
 }
 
+label {
+  display: none;
+}
+  
 #addButton {
+  display: inline;
+}
+
+#perSecondLabel {
+  display: inline;
+}
+
+#perClickLabel {
   display: inline;
 }
