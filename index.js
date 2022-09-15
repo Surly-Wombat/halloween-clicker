@@ -7,6 +7,7 @@ window.setInterval(autoAdd,10);
 
 document.getElementById("addButton").onclick = function() {
   add();
+  checkUnlocks();
 }
 
 function displayScore() {
