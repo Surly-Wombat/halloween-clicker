@@ -3,7 +3,7 @@ let internalScore = 0;
 let perClick = 1;
 let perSecond = 2;
 
-setInterval(autoAdd,1);
+window.setInterval(autoAdd,1);
 
 document.getElementById("addButton").onclick = function() {
   add();
