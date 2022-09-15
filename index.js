@@ -1,7 +1,7 @@
 let score = 0;
 let internalScore = 0;
 let perClick = 1;
-let perSecond = 0;
+let perSecond = 20000;
 
 window.setInterval(autoAdd,10);
 
