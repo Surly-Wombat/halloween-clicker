@@ -3,10 +3,10 @@ let internalScore = 0;
 let perClick = 1;
 let perSecond = 2;
 
-let loop = window.setInterval(autoAdd,100);
+window.setInterval(autoAdd,100);
 
 document.getElementById("addButton").onclick = function() {
-  add();
+  autoAdd();
 }
 
 function displayScore() {
