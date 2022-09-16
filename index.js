@@ -24,6 +24,9 @@ document.getElementById("trickOrTreaters").onclick = function() {
     }
 }
 
+document.getElementById("trickOrTreatersUpgrade1").onclick = function() {
+}
+
 function changeDisplays() {
     displayScore();
     document.getElementById("perClickLabel").innerHTML = "Per Click: "+perClick;
@@ -75,5 +78,8 @@ function checkUnlocks() {
     document.getElementById("trickOrTreaters").style.display = "inline";
     document.getElementById("trickOrTreatersLabel").style.display = "inline";
     document.getElementById("trickOrTreatersCount").style.display = "inline";
+  }
+  if(internalScore >= 100) {
+      document.getElementById("trickOrTreatersUpgrade1").style.display = "inline";
   }
 }
