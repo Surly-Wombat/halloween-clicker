@@ -91,7 +91,7 @@ function checkUnlocks() {
     document.getElementById("trickOrTreatersLabel").style.display = "inline";
     document.getElementById("trickOrTreatersCount").style.display = "inline";
   }
-  if(internalScore >= 100) {
+  if((internalScore >= 100)&&(trickOrTreatersRate == 1)) {
       document.getElementById("trickOrTreatersUpgrade1").style.display = "inline";
   }
 }
