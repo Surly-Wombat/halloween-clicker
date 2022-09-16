@@ -5,6 +5,7 @@ let perSecond = 0;
 let clickUpgrade1Price = 20;
 let trickOrTreatersPrice = 50;
 let trickOrTreatersCount = 0;
+let trickOrTreatersRate = 1;
 
 window.setInterval(autoAdd,10);
 
@@ -25,6 +26,9 @@ document.getElementById("trickOrTreaters").onclick = function() {
 }
 
 document.getElementById("trickOrTreatersUpgrade1").onclick = function() {
+    if(internalScore >= 200) {
+        trickOrTreatersUpgrade1();
+    }
 }
 
 function changeDisplays() {
@@ -64,9 +68,17 @@ function clickUpgrade1() {
 
 function gainTrickOrTreater() {
     internalScore -= trickOrTreatersPrice;
-    perSecond += 1;
+    perSecond += trickOrTreatersRate;
     trickOrTreatersCount += 1;
     trickOrTreatersPrice = Math.round(trickOrTreatersPrice * 1.15)
+    changeDisplays();
+}
+
+function trickOrTreatersUpgrade1() {
+    internalScore -= 200;
+    perSecond += trickOrTreatersCount;
+    trickOrTreatersRate = 2;
+    document.getElementById("trickOrTreatersUpgrade1").style.display = "none";
     changeDisplays();
 }
 
