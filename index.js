@@ -3,9 +3,6 @@ let internalScore = 0;
 let perClick = 1;
 let perSecond = 0;
 let clickUpgrade1Price = 20;
-let trickOrTreatersPrice = 50;
-let trickOrTreatersCount = 0;
-let trickOrTreatersRate = 1;
 
 window.setInterval(autoAdd,10);
 
@@ -20,14 +17,14 @@ document.getElementById("clickUpgrade1").onclick = function() {
 }
 
 document.getElementById("trickOrTreaters").onclick = function() {
-    if(internalScore >= trickOrTreatersPrice) {
-        gainTrickOrTreater();
+    if(internalScore >= trickOrTreaters.price) {
+        trickOrTreaters.gain();
     }
 }
 
 document.getElementById("trickOrTreatersUpgrade1").onclick = function() {
     if(internalScore >= 200) {
-        trickOrTreatersUpgrade1();
+        trickOrTreaters.upgrade1();
     }
 }
 
@@ -36,8 +33,8 @@ function changeDisplays() {
     document.getElementById("perClickLabel").innerHTML = "Per Click: "+perClick;
     document.getElementById("perSecondLabel").innerHTML = "Per Second: "+perSecond;
     document.getElementById("clickUpgrade1").innerHTML = "Get a bigger bucket ("+clickUpgrade1Price+" candy)";
-    document.getElementById("trickOrTreaters").innerHTML = "Hire a trick-or-treater ("+trickOrTreatersPrice+" candy)";
-    document.getElementById("trickOrTreatersCount").innerHTML = trickOrTreatersCount;
+    document.getElementById("trickOrTreaters").innerHTML = "Hire a trick-or-treater ("+trickOrTreaters.price+" candy)";
+    document.getElementById("trickOrTreatersCount").innerHTML = trickOrTreaters.count;
 }
 
 function displayScore() {
@@ -66,22 +63,6 @@ function clickUpgrade1() {
     changeDisplays();
 }
 
-function gainTrickOrTreater() {
-    internalScore -= trickOrTreatersPrice;
-    perSecond += trickOrTreatersRate;
-    trickOrTreatersCount += 1;
-    trickOrTreatersPrice = Math.round(trickOrTreatersPrice * 1.15)
-    changeDisplays();
-}
-
-function trickOrTreatersUpgrade1() {
-    internalScore -= 200;
-    perSecond += trickOrTreatersCount;
-    trickOrTreatersRate = 2;
-    document.getElementById("trickOrTreatersUpgrade1").style.display = "none";
-    changeDisplays();
-}
-
 function checkUnlocks() {
   if(internalScore >= 10) {
     document.getElementById("clickUpgrade1").style.display = "inline";
@@ -91,7 +72,27 @@ function checkUnlocks() {
     document.getElementById("trickOrTreatersLabel").style.display = "inline";
     document.getElementById("trickOrTreatersCount").style.display = "inline";
   }
-  if((internalScore >= 100)&&(trickOrTreatersRate == 1)) {
+  if((internalScore >= 100)&&(trickOrTreaters.rate == 1)) {
       document.getElementById("trickOrTreatersUpgrade1").style.display = "inline";
   }
+}
+
+let trickOrTreaters = {
+    price: 50,
+    count: 0,
+    rate: 1,
+    gain: function() {
+        internalScore -= trickOrTreaters.price;
+        perSecond += trickOrTreaters.rate;
+        trickOrTreaters.count += 1;
+        trickOrTreaters.price = Math.round(trickOrTreaters.price * 1.15)
+        changeDisplays();
+    },
+    upgrade1: function() {
+        internalScore -= 200;
+        perSecond += trickOrTreaters.count;
+        trickOrTreaters.rate = 2;
+        document.getElementById("trickOrTreatersUpgrade1").style.display = "none";
+        changeDisplays();
+    }
 }
