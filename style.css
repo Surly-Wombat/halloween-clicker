@@ -1,3 +1,7 @@
+.upgrades {
+  position: absolute;
+  right: 0px;
+}
 button {
   display: none;
 }
