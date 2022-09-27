@@ -28,6 +28,18 @@ document.getElementById("trickOrTreatersUpgrade1").onclick = function() {
     }
 }
 
+document.getElementById("candyFactories").onclick = function() {
+    if(internalScore >= candyFactories.price) {
+        candyFactories.gain();
+    }
+}
+
+document.getElementById("candyFactoriesUpgrade1").onclick = function() {
+    if(internalScore >= 2000) {
+        candyFactories.upgrade1();
+    }
+}
+
 function changeDisplays() {
     displayScore();
     document.getElementById("perClickLabel").innerHTML = "Per Click: "+perClick;
@@ -35,6 +47,8 @@ function changeDisplays() {
     document.getElementById("clickUpgrade1").innerHTML = "Get a bigger bucket ("+clickUpgrade1Price+" candy)";
     document.getElementById("trickOrTreaters").innerHTML = "Hire a trick-or-treater ("+trickOrTreaters.price+" candy)";
     document.getElementById("trickOrTreatersCount").innerHTML = trickOrTreaters.count;
+    document.getElementById("candyFactories").innerHTML = "Build a candy factory ("+candyFactories.price+" candy)";
+    document.getElementById("candyFactoriesCount").innerHTML = candyFactories.count;
 }
 
 function displayScore() {
@@ -73,7 +87,15 @@ function checkUnlocks() {
     document.getElementById("trickOrTreatersCount").style.display = "inline";
   }
   if((internalScore >= 100)&&(trickOrTreaters.rate == 1)) {
-      document.getElementById("trickOrTreatersUpgrade1").style.display = "inline";
+    document.getElementById("trickOrTreatersUpgrade1").style.display = "inline";
+  }
+  if(internalScore >= 300) {
+    document.getElementById("candyFactories").style.display = "inline";
+    document.getElementById("candyFactoriesLabel").style.display = "inline";
+    document.getElementById("candyFactoriesCount").style.display = "inline";
+  }
+  if((internalScore >= 1000)&&(candyFactories.rate == 15)) {
+    document.getElementById("candyFactoriesUpgrade1").style.dipslay = "inline";
   }
 }
 
@@ -91,8 +113,28 @@ let trickOrTreaters = {
     upgrade1: function() {
         internalScore -= 200;
         perSecond += trickOrTreaters.count;
-        trickOrTreaters.rate = 2;
+        trickOrTreaters.rate *= 2;
         document.getElementById("trickOrTreatersUpgrade1").style.display = "none";
+        changeDisplays();
+    }
+}
+
+let candyFactories = {
+    price: 500,
+    count: 0,
+    rate: 15,
+    gain: function() {
+        internalScore -= candyFactories.price;
+        perSecond += candyFactories.rate;
+        candyFactories.count += 1;
+        candyFactories.price = Math.round(candyFactories.price * 1.15);
+        changeDisplays();
+    },
+    upgrade1: function() {
+        internalScore -= 2000;
+        perSecond += candyFactories.count;
+        candyFactories.rate *= 2;
+        document.getElementById("candyFactoriesUpgrade1").style.display = "none";
         changeDisplays();
     }
 }
