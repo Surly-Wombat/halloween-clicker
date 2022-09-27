@@ -104,16 +104,16 @@ let trickOrTreaters = {
     count: 0,
     rate: 1,
     gain: function() {
-        internalScore -= trickOrTreaters.price;
-        perSecond += trickOrTreaters.rate;
-        trickOrTreaters.count += 1;
-        trickOrTreaters.price = Math.round(trickOrTreaters.price * 1.15)
+        internalScore -= this.price;
+        perSecond += this.rate;
+        this.count += 1;
+        this.price = Math.round(this.price * 1.15)
         changeDisplays();
     },
     upgrade1: function() {
         internalScore -= 200;
-        perSecond += trickOrTreaters.count;
-        trickOrTreaters.rate *= 2;
+        perSecond += this.count;
+        this.rate *= 2;
         document.getElementById("trickOrTreatersUpgrade1").style.display = "none";
         changeDisplays();
     }
@@ -124,16 +124,16 @@ let candyFactories = {
     count: 0,
     rate: 15,
     gain: function() {
-        internalScore -= candyFactories.price;
-        perSecond += candyFactories.rate;
-        candyFactories.count += 1;
-        candyFactories.price = Math.round(candyFactories.price * 1.15);
+        internalScore -= this.price;
+        perSecond += this.rate;
+        this.count += 1;
+        this.price = Math.round(this.price * 1.15);
         changeDisplays();
     },
     upgrade1: function() {
         internalScore -= 2000;
-        perSecond += candyFactories.count;
-        candyFactories.rate *= 2;
+        perSecond += this.count;
+        this.rate *= 2;
         document.getElementById("candyFactoriesUpgrade1").style.display = "none";
         changeDisplays();
     }
