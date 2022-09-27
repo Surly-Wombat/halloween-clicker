@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>Halloween Clicker</title>
+  <style>
+    .upgrades {
+      position: absolute;
+      right: 0px;
+    }
 </head>
 
 <body>
@@ -13,9 +18,9 @@
   <label id="perClickLabel">Per Click: 1</label><br>
   <label id="perSecondLabel">Per Second: 0</label><br>
   
-  <button type="button" id="addButton">Collect Candy</button><br>
-  <button type="button" id="clickUpgrade1">Get a bigger bucket (20 candy)</button><br><br>
-  <button type="button" id="trickOrTreaters">Hire a trick-or-treater (50 candy)</button>
+  <button type="button" id="addButton"><img scr="https://bit.ly/3BF9FD7" height="50" width="50"></button><br>
+  <button type="button" id="clickUpgrade1" class="upgrades">Get a bigger bucket (20 candy)</button><br>
+  <button type="button" id="trickOrTreaters" class="upgrades">Hire a trick-or-treater (50 candy)</button>
   <label id="trickOrTreatersLabel">Trick-or-treaters: </label>
   <label id="trickOrTreatersCount">0</label>
   <button id="trickOrTreatersUpgrade1">Upgrade Trick-or-treaters (200 candy)</button>
