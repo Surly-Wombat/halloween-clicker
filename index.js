@@ -104,16 +104,16 @@ let trickOrTreaters = {
     count: 0,
     rate: 1,
     gain: function() {
-        internalScore -= this.price;
-        perSecond += this.rate;
-        this.count += 1;
-        this.price = Math.round(this.price * 1.15)
+        internalScore -= trickOrTreaters.price;
+        perSecond += trickOrTreaters.rate;
+        trickOrTreaters.count += 1;
+        trickOrTreaters.price = Math.round(trickOrTreaters.price * 1.15)
         changeDisplays();
     },
     upgrade1: function() {
         internalScore -= 200;
-        perSecond += this.count;
-        this.rate *= 2;
+        perSecond += trickOrTreaters.count;
+        trickOrTreaters.rate *= 2;
         document.getElementById("trickOrTreatersUpgrade1").style.display = "none";
         changeDisplays();
     }
