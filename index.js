@@ -6,8 +6,28 @@ let clickUpgrade1Price = 20;
 
 window.setInterval(autoAdd,10);
 
+let trickOrTreaters = {
+    price: 50,
+    count: 0,
+    rate: 1,
+    gain: function() {
+        internalScore -= this.price;
+        perSecond += this.rate;
+        this.count += 1;
+        this.price = Math.round(this.price * 1.15)
+        changeDisplays();
+    },
+    upgrade1: function() {
+        internalScore -= 200;
+        perSecond += this.count;
+        this.rate *= 2;
+        document.getElementById("trickOrTreatersUpgrade1").style.display = "none";
+        changeDisplays();
+    }
+}
+
 document.getElementById("addButton").onclick = function() {
-    add();
+    add(trickOrTreaters);
 }
 
 document.getElementById("clickUpgrade1").onclick = function() {
@@ -57,9 +77,9 @@ function displayScore() {
   document.getElementById("counter").innerHTML = score;
 }
 
-function add() {
+function add(trickOrTreaters) {
     internalScore += perClick;
-    checkUnlocks();
+    checkUnlocks(trickOrTreaters);
     changeDisplays();
 }
 
@@ -77,7 +97,7 @@ function clickUpgrade1() {
     changeDisplays();
 }
 
-function checkUnlocks() {
+function checkUnlocks(trickOrTreaters) {
   if(internalScore >= 10) {
     document.getElementById("clickUpgrade1").style.display = "inline";
   }
@@ -97,26 +117,6 @@ function checkUnlocks() {
   if((internalScore >= 1000)&&(candyFactories.rate == 15)) {
     document.getElementById("candyFactoriesUpgrade1").style.dipslay = "inline";
   }*/
-}
-
-let trickOrTreaters = {
-    price: 50,
-    count: 0,
-    rate: 1,
-    gain: function() {
-        internalScore -= trickOrTreaters.price;
-        perSecond += trickOrTreaters.rate;
-        trickOrTreaters.count += 1;
-        trickOrTreaters.price = Math.round(trickOrTreaters.price * 1.15)
-        changeDisplays();
-    },
-    upgrade1: function() {
-        internalScore -= 200;
-        perSecond += trickOrTreaters.count;
-        trickOrTreaters.rate *= 2;
-        document.getElementById("trickOrTreatersUpgrade1").style.display = "none";
-        changeDisplays();
-    }
 }
 
 /*let candyFactories = {
