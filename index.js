@@ -44,7 +44,7 @@ let candyFactories = {
     }
 }
 
-window.setInterval(autoAdd,10,trickOrTreaters);
+window.setInterval(autoAdd,10,trickOrTreaters,candyFactories);
 
 document.getElementById("addButton").onclick = function() {
     add(trickOrTreaters);
@@ -97,16 +97,16 @@ function displayScore() {
   document.getElementById("counter").innerHTML = score;
 }
 
-function add(trickOrTreaters) {
+function add(trickOrTreaters,candyFactories) {
     internalScore += perClick;
-    checkUnlocks(trickOrTreaters);
+    checkUnlocks(trickOrTreaters,candyFactories);
     changeDisplays();
 }
 
-function autoAdd(trickOrTreaters) {
+function autoAdd(trickOrTreaters,candyFactories) {
   let addHundredth = (perSecond / 100);
   internalScore += addHundredth;
-  checkUnlocks(trickOrTreaters);
+  checkUnlocks(trickOrTreaters,candyFactories);
   changeDisplays();
 }
 
@@ -117,7 +117,7 @@ function clickUpgrade1() {
     changeDisplays();
 }
 
-function checkUnlocks(trickOrTreaters) {
+function checkUnlocks(trickOrTreaters,candyFactories) {
   if(internalScore >= 10) {
     document.getElementById("clickUpgrade1").style.display = "inline";
   }
