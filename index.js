@@ -4,8 +4,6 @@ let perClick = 1;
 let perSecond = 0;
 let clickUpgrade1Price = 20;
 
-window.setInterval(autoAdd,10,trickOrTreaters);
-
 let trickOrTreaters = {
     price: 50,
     count: 0,
@@ -25,6 +23,8 @@ let trickOrTreaters = {
         changeDisplays();
     }
 }
+
+window.setInterval(autoAdd,10,trickOrTreaters);
 
 document.getElementById("addButton").onclick = function() {
     add(trickOrTreaters);
