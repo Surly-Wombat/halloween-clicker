@@ -4,7 +4,7 @@ let perClick = 1;
 let perSecond = 0;
 let clickUpgrade1Price = 20;
 
-window.setInterval(autoAdd,10);
+window.setInterval(autoAdd,10,trickOrTreaters);
 
 let trickOrTreaters = {
     price: 50,
@@ -83,10 +83,10 @@ function add(trickOrTreaters) {
     changeDisplays();
 }
 
-function autoAdd() {
+function autoAdd(trickOrTreaters) {
   let addHundredth = (perSecond / 100);
   internalScore += addHundredth;
-  checkUnlocks();
+  checkUnlocks(trickOrTreaters);
   changeDisplays();
 }
 
