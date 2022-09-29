@@ -24,6 +24,26 @@ let trickOrTreaters = {
     }
 }
 
+let candyFactories = {
+    price: 500,
+    count: 0,
+    rate: 15,
+    gain: function() {
+        internalScore -= this.price;
+        perSecond += this.rate;
+        this.count += 1;
+        this.price = Math.round(this.price * 1.15);
+        changeDisplays();
+    },
+    upgrade1: function() {
+        internalScore -= 2000;
+        perSecond += this.count;
+        this.rate *= 2;
+        document.getElementById("candyFactoriesUpgrade1").style.display = "none";
+        changeDisplays();
+    }
+}
+
 window.setInterval(autoAdd,10,trickOrTreaters);
 
 document.getElementById("addButton").onclick = function() {
@@ -67,8 +87,8 @@ function changeDisplays() {
     document.getElementById("clickUpgrade1").innerHTML = "Get a bigger bucket ("+clickUpgrade1Price+" candy)";
     document.getElementById("trickOrTreaters").innerHTML = "Hire a trick-or-treater ("+trickOrTreaters.price+" candy)";
     document.getElementById("trickOrTreatersCount").innerHTML = trickOrTreaters.count;
-    //document.getElementById("candyFactories").innerHTML = "Build a candy factory ("+candyFactories.price+" candy)";
-    //document.getElementById("candyFactoriesCount").innerHTML = candyFactories.count;
+    document.getElementById("candyFactories").innerHTML = "Build a candy factory ("+candyFactories.price+" candy)";
+    document.getElementById("candyFactoriesCount").innerHTML = candyFactories.count;
 }
 
 function displayScore() {
@@ -109,32 +129,12 @@ function checkUnlocks(trickOrTreaters) {
   if((internalScore >= 100)&&(trickOrTreaters.rate == 1)) {
     document.getElementById("trickOrTreatersUpgrade1").style.display = "inline";
   }
-  /*if(internalScore >= 300) {
+  if(internalScore >= 300) {
     document.getElementById("candyFactories").style.display = "inline";
     document.getElementById("candyFactoriesLabel").style.display = "inline";
     document.getElementById("candyFactoriesCount").style.display = "inline";
   }
   if((internalScore >= 1000)&&(candyFactories.rate == 15)) {
     document.getElementById("candyFactoriesUpgrade1").style.dipslay = "inline";
-  }*/
+  }
 }
-
-/*let candyFactories = {
-    price: 500,
-    count: 0,
-    rate: 15,
-    gain: function() {
-        internalScore -= this.price;
-        perSecond += this.rate;
-        this.count += 1;
-        this.price = Math.round(this.price * 1.15);
-        changeDisplays();
-    },
-    upgrade1: function() {
-        internalScore -= 2000;
-        perSecond += this.count;
-        this.rate *= 2;
-        document.getElementById("candyFactoriesUpgrade1").style.display = "none";
-        changeDisplays();
-    }
-}*/
