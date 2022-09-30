@@ -50,6 +50,10 @@ document.getElementById("addButton").onclick = function() {
     add(trickOrTreaters);
 }
 
+document.getElementById("saveButton").onclick = function() {
+    saveGame(trickOrTreaters,candyFactories);
+}
+
 document.getElementById("clickUpgrade1").onclick = function() {
     if(internalScore >= clickUpgrade1Price) {
         clickUpgrade1();
@@ -138,3 +142,18 @@ function checkUnlocks(trickOrTreaters,candyFactories) {
     document.getElementById("candyFactoriesUpgrade1").style.dipslay = "inline";
   }
 }
+
+function saveGame(trickOrTreaters,candyFactories) {
+    var gameSave = {
+        score: score,
+        internalScore: internalScore,
+        perClick: perClick,
+        perSecond: perSecond,
+        clickUpgrade1Price: clickUpgrade1Price,
+        trickOrTreaters: trickOrTreaters,
+        candyFactories: candyFactories
+    }
+    localStorage.setItem("gameSave", JSON.stringify(gameSave));
+}
+
+window.setInterval(saveGame,30000,trickOrTreaters,candyFactories)
