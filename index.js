@@ -167,8 +167,9 @@ function loadGame() {
     if (typeof savedGame.candyFactories !== "undefined") score = savedGame.candyFactories;
 }
 
-window.onload = function() {
+window.onload = function(trickOrTreaters,candyFactories) {
     loadGame();
+    autoAdd(trickOrTreaters,candyFactories);
 }
 
 window.setInterval(saveGame,30000,trickOrTreaters,candyFactories)
