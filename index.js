@@ -4,7 +4,7 @@ let perClick = 1;
 let perSecond = 0;
 let clickUpgrade1Price = 20;
 
-let trickOrTreaters = {
+var trickOrTreaters = {
     price: 50,
     count: 0,
     rate: 1,
@@ -24,7 +24,7 @@ let trickOrTreaters = {
     }
 }
 
-let candyFactories = {
+var candyFactories = {
     price: 500,
     count: 0,
     rate: 15,
@@ -163,7 +163,9 @@ function loadGame() {
     if (typeof savedGame.perClick !== "undefined") perClick = savedGame.perClick;
     if (typeof savedGame.perSecond !== "undefined") perSecond = savedGame.perSecond;
     if (typeof savedGame.clickUpgrade1Price !== "undefined") clickUpgrade1Price = savedGame.clickUpgrade1Price;
-    if (typeof savedGame.trickOrTreaters !== "undefined") trickOrTreaters = savedGame.trickOrTreaters;
+    if (typeof savedGame.trickOrTreaters.price !== "undefined") trickOrTreaters.price = savedGame.trickOrTreaters.price;
+    if (typeof savedGame.trickOrTreaters.rate !== "undefined") trickOrTreaters.rate = savedGame.trickOrTreaters.rate;
+    if (typeof savedGame.trickOrTreaters.count !== "undefined") trickOrTreaters.count = savedGame.trickOrTreaters.count;
     if (typeof savedGame.candyFactories !== "undefined") score = savedGame.candyFactories;
 }
 
