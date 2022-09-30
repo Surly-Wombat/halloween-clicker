@@ -10,14 +10,6 @@ label {
   display: none;
 }
   
-#addButton {
-  display: inline;
-}
-
-#perSecondLabel {
-  display: inline;
-}
-
-#perClickLabel {
+.alwaysVisible {
   display: inline;
 }
