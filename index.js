@@ -156,4 +156,19 @@ function saveGame(trickOrTreaters,candyFactories) {
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
 }
 
+function loadGame() {
+    var savedGame = JSON.parse(localStorage.getItem("gameSave"));
+    if (typeof savedGame.score !== "undefined") score = savedGame.score;
+    if (typeof savedGame.internalScore !== "undefined") internalScore = savedGame.internalScore;
+    if (typeof savedGame.perClick !== "undefined") perClick = savedGame.perClick;
+    if (typeof savedGame.perSecond !== "undefined") perSecond = savedGame.perSecond;
+    if (typeof savedGame.clickUpgrade1Price !== "undefined") clickUpgrade1Price = savedGame.clickUpgrade1Price;
+    if (typeof savedGame.trickOrTreaters !== "undefined") trickOrTreaters = savedGame.trickOrTreaters;
+    if (typeof savedGame.candyFactories !== "undefined") score = savedGame.candyFactories;
+}
+
+window.onload = function() {
+    loadGame();
+}
+
 window.setInterval(saveGame,30000,trickOrTreaters,candyFactories)
