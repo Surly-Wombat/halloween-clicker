@@ -139,7 +139,7 @@ function checkUnlocks(trickOrTreaters,candyFactories) {
     document.getElementById("candyFactoriesCount").style.display = "inline";
   }
   if((internalScore >= 1000)&&(candyFactories.rate == 15)) {
-    document.getElementById("candyFactoriesUpgrade1").style.dipslay = "inline";
+    document.getElementById("candyFactoriesUpgrade1").style.display = "inline";
   }
 }
 
