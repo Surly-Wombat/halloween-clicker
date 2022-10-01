@@ -47,7 +47,7 @@ var candyFactories = {
 window.setInterval(autoAdd,10,trickOrTreaters,candyFactories);
 
 document.getElementById("addButton").onclick = function() {
-    add(trickOrTreaters);
+    add(trickOrTreaters,candyFactories);
 }
 
 document.getElementById("saveButton").onclick = function() {
