@@ -13,16 +13,24 @@ label {
 .alwaysVisible {
   display: inline;
 }
+
 body {
   background-image: url('assets/backgrounds/main_bg.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
 }
+
 #addButton:hover {
   transform: scale(1.15, 1.15)
 }  
 
 #addButton:active {
   transform: scale(1.05, 1.05)
+}
+
+#addButton {
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto;
 }
