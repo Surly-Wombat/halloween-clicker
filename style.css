@@ -1,7 +1,6 @@
-.upgrades {
+.upgrades t{
   position: absolute;
   right: 0px;
-  top: 10px;
 }
 button {
   display: none;
@@ -20,3 +19,7 @@ body {
   background-attachment: fixed;  
   background-size: cover;
 }
+addButton:hover {
+  width: 110%;
+  height: 110%;
+}  
