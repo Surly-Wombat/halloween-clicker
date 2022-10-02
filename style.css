@@ -19,7 +19,7 @@ body {
   background-attachment: fixed;  
   background-size: cover;
 }
-addButton:hover {
+#addButton:hover {
   width: 110%;
   height: 110%;
 }  
