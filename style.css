@@ -13,3 +13,9 @@ label {
 .alwaysVisible {
   display: inline;
 }
+body {
+  background-image: url('https://t4.ftcdn.net/jpg/01/73/62/49/360_F_173624945_8pfAD4XWDJszG4rrzcPjqrj2pL9akxmi.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
