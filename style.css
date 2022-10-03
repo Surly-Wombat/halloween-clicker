@@ -59,8 +59,6 @@ cntr {
   position: absolute;
   right: 10px;
   top: 10px;
-  border-style: solid;
-  border-width: thin;
 }
 
 .upgrades > button {
@@ -68,6 +66,8 @@ cntr {
   height: 15%;
   border-radius: 3%/18%;
   background-color: #DCDCDC;
+  border-style: solid;
+  border-width: thin;
 }
 
 #clickUpgrade1 {
