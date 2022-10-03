@@ -38,6 +38,8 @@ body {
 }
 
 #statsDiv {
+  height: 100px;
+  width: 300px;
   position: absolute;
   left: 40%;
   top: 10%;
