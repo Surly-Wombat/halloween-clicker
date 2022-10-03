@@ -1,6 +1,6 @@
-.upgrades {
+.upgradeCounters {
   position: absolute;
-  right: 0px;
+  left: 0px;
 }
 button {
   display: none;
