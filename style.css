@@ -49,6 +49,10 @@ body {
   border-radius: 25px;
 }
 
+cntr {
+  text-align:center;
+}
+
 .upgrades > button {
   width: 200px;
   height: 50px;
