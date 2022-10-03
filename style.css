@@ -31,15 +31,17 @@ body {
 }
 
 #addButton {
+  height: 24%;
+  width: 24%;
   display: block; 
-  position: fixed;
+  position: absolute;
   left: 40%;
   top: 35%;
 }
 
 #statsDiv {
-  height: 100px;
-  width: 300px;
+  height: 8%;
+  width: 24%;
   position: absolute;
   left: 40%;
   top: 10%;
