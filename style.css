@@ -35,3 +35,13 @@ body {
   left: 40%;
   top: 35%;
 }
+
+#statsDiv {
+  width: 300;
+  height: 150;
+  position: absolute;
+  left: 40%;
+  top: 10%;
+  text-align: center;
+  background-color: #DCDCDC;
+}
