@@ -53,6 +53,14 @@ cntr {
   text-align:center;
 }
 
+.anchor {
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
 .upgrades > button {
   width: 200px;
   height: 50px;
