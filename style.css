@@ -64,6 +64,8 @@ cntr {
 .upgrades > button {
   width: 85%;
   height: 15%;
+  border-radius: 3%/18%;
+  background-color: #DCDCDC;
 }
 
 #clickUpgrade1 {
