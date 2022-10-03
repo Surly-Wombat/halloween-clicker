@@ -48,3 +48,26 @@ body {
   background-color: #DCDCDC;
   border-radius: 25px;
 }
+
+button.upgrades {
+  width: 200px;
+  height: 50px;
+}
+
+#clickUpgrade1 {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+#trickOrTreaters {
+  position: absolute;
+  right: 0px;
+  top: 60px;
+}
+
+#candyFactories {
+  position: absolute;
+  right: 0px;
+  top: 120px;
+}
