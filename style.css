@@ -68,8 +68,8 @@ cntr {
   background-color: #DCDCDC;
   border-style: solid;
   border-width: thin;
-  border-color: #FFFFFF;
-  color: #FFFFFF;
+  border-color: #000000;
+  color: #000000;
 }
 
 #clickUpgrade1 {
