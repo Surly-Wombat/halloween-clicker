@@ -6,10 +6,6 @@
 button {
   display: none;
 }
-
-label {
-  display: none;
-}
   
 .alwaysVisible {
   display: inline;
@@ -55,7 +51,7 @@ cntr {
 }
 
 .anchor {
-  width: 30%;
+  width: 35%;
   height: 50%;
   position: absolute;
   right: 10px;
