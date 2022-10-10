@@ -27,8 +27,8 @@ var trickOrTreaters = {
 }
 
 var candyFactories = {
-    price: 500,
-    displayPrice: "500",
+    price: 550,
+    displayPrice: "550",
     count: 0,
     rate: 15,
     gain: function() {
