@@ -6,6 +6,7 @@ let clickUpgrade1Price = 20;
 
 var trickOrTreaters = {
     price: 50,
+    displayPrice: "50",
     count: 0,
     rate: 1,
     gain: function() {
@@ -13,6 +14,7 @@ var trickOrTreaters = {
         perSecond += this.rate;
         this.count += 1;
         this.price = Math.round(this.price * 1.15)
+        this.displayPrice = this.price.toLocaleString("en-US");
         changeDisplays();
     },
     upgrade1: function() {
@@ -26,6 +28,7 @@ var trickOrTreaters = {
 
 var candyFactories = {
     price: 500,
+    displayPrice: "500",
     count: 0,
     rate: 15,
     gain: function() {
@@ -33,6 +36,7 @@ var candyFactories = {
         perSecond += this.rate;
         this.count += 1;
         this.price = Math.round(this.price * 1.15);
+        this.displayPrice = this.price.toLocaleString("en-US");
         changeDisplays();
     },
     upgrade1: function() {
@@ -89,15 +93,15 @@ function changeDisplays() {
     document.getElementById("perClickLabel").innerHTML = "Per Click: "+perClick;
     document.getElementById("perSecondLabel").innerHTML = "Per Second: "+perSecond;
     document.getElementById("clickUpgrade1").innerHTML = `Get a bigger bucket (${clickUpgrade1Price} candy)`
-    document.getElementById("trickOrTreatersPrice").innerHTML = `Price: ${trickOrTreaters.price} candy`;
+    document.getElementById("trickOrTreatersPrice").innerHTML = `Price: ${trickOrTreaters.displayPrice} candy`;
     document.getElementById("trickOrTreatersCount").innerHTML = `Count: ${trickOrTreaters.count}`;
-    document.getElementById("candyFactoriesPrice").innerHTML = `Price: ${candyFactories.price} candy`;
+    document.getElementById("candyFactoriesPrice").innerHTML = `Price: ${candyFactories.displayPrice} candy`;
     document.getElementById("candyFactoriesCount").innerHTML = `Count: ${candyFactories.count}`;
 }
 
 function displayScore() {
   score = Math.round(internalScore);
-  score = score.toLocaleString("en-US")
+  score = score.toLocaleString("en-US");
   document.getElementById("counter").innerHTML = score;
 }
 
@@ -160,9 +164,11 @@ function loadGame() {
     if (typeof savedGame.perSecond !== "undefined") perSecond = savedGame.perSecond;
     if (typeof savedGame.clickUpgrade1Price !== "undefined") clickUpgrade1Price = savedGame.clickUpgrade1Price;
     if (typeof savedGame.trickOrTreaters.price !== "undefined") trickOrTreaters.price = savedGame.trickOrTreaters.price;
+    if (typeof savedGame.trickOrTreaters.displayPrice !== "undefined") trickOrTreaters.displayPrice = savedGame.trickOrTreaters.displayPrice;
     if (typeof savedGame.trickOrTreaters.rate !== "undefined") trickOrTreaters.rate = savedGame.trickOrTreaters.rate;
     if (typeof savedGame.trickOrTreaters.count !== "undefined") trickOrTreaters.count = savedGame.trickOrTreaters.count;
     if (typeof savedGame.candyFactories.price !== "undefined") candyFactories.price = savedGame.candyFactories.price;
+    if (typeof savedGame.candyFactories.displayPrice !== "undefined") candyFactories.displayPrice = savedGame.candyFactories.displayPrice;
     if (typeof savedGame.candyFactories.rate !== "undefined") candyFactories.rate = savedGame.candyFactories.rate;
     if (typeof savedGame.candyFactories.count !== "undefined") candyFactories.count = savedGame.candyFactories.count;
 }
