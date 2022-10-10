@@ -88,11 +88,11 @@ function changeDisplays() {
     displayScore();
     document.getElementById("perClickLabel").innerHTML = "Per Click: "+perClick;
     document.getElementById("perSecondLabel").innerHTML = "Per Second: "+perSecond;
-    document.getElementById("clickUpgrade1").innerHTML = "Get a bigger bucket ("+clickUpgrade1Price+" candy)";
-    document.getElementById("trickOrTreaters").innerHTML = "Hire a trick-or-treater ("+trickOrTreaters.price+" candy)";
-    document.getElementById("trickOrTreatersCount").innerHTML = trickOrTreaters.count;
-    document.getElementById("candyFactories").innerHTML = "Build a candy factory ("+candyFactories.price+" candy)";
-    document.getElementById("candyFactoriesCount").innerHTML = candyFactories.count;
+    document.getElementById("clickUpgrade1").innerHTML = `Get a bigger bucket (${clickUpgrade1Price} candy)`
+    document.getElementById("trickOrTreatersPrice").innerHTML = `Price: ${trickOrTreaters.price} candy`;
+    document.getElementById("trickOrTreatersCount").innerHTML = `Count: ${trickOrTreaters.count}`;
+    document.getElementById("candyFactoriesPrice").innerHTML = `Price: ${candyFactories.price} candy`;
+    document.getElementById("candyFactoriesCount").innerHTML = `Count: ${candyFactories.count}`;
 }
 
 function displayScore() {
@@ -127,16 +127,12 @@ function checkUnlocks(trickOrTreaters,candyFactories) {
   }
   if(internalScore >= 30) {
     document.getElementById("trickOrTreaters").style.display = "inline";
-    document.getElementById("trickOrTreatersLabel").style.display = "inline";
-    document.getElementById("trickOrTreatersCount").style.display = "inline";
   }
   if((internalScore >= 100)&&(trickOrTreaters.rate == 1)) {
     document.getElementById("trickOrTreatersUpgrade1").style.display = "inline";
   }
   if(internalScore >= 300) {
     document.getElementById("candyFactories").style.display = "inline";
-    document.getElementById("candyFactoriesLabel").style.display = "inline";
-    document.getElementById("candyFactoriesCount").style.display = "inline";
   }
   if((internalScore >= 1000)&&(candyFactories.rate == 15)) {
     document.getElementById("candyFactoriesUpgrade1").style.display = "inline";
