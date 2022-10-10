@@ -86,6 +86,10 @@ cntr {
   padding-right: 5%;
 }
 
+#candySynthesizersPrice {
+  padding-right: 5%;
+}
+
 #clickUpgrade1 {
   position: absolute;
   right: 0px;
@@ -102,4 +106,10 @@ cntr {
   position: absolute;
   right: 0px;
   top: 34%;
+}
+
+#candySynthesizers {
+  position: absolute;
+  right: 0px;
+  top: 51%;
 }
