@@ -20,17 +20,21 @@
   <div class="anchor">
     <div class="upgrades">
         <button type="button" id="clickUpgrade1"><cntr>Get a bigger bucket (20 candy)</cntr></button>
-        <button type="button" id="trickOrTreaters"><cntr>Hire a trick-or-treater (50 candy)</cntr></button>
-        <button type="button" id="candyFactories"><cntr>Build a candy factory (500 candy)</cntr></button>
+        <button type="button" id="trickOrTreaters">
+          <label><cntr>Trick-or-treaters</cntr></label><br>
+          <label id="trickOrTreatersPrice">Price: 50 candy</label>
+          <label id="trickOrTreatersCount">Count: 0</label>
+        </button>
+        <button type="button" id="candyFactories">
+          <label><cntr>Candy Factories</cntr></label><br>
+          <label id="candyFactoriesPrice">Price: 500 candy</label>
+          <label id="candyFactoriesCount">Count: 0</label>
+        </button>
     </div>
   </div>
   
   <div class="upgradeCounters">
-      <label id="trickOrTreatersLabel" style="color:white">Trick-or-treaters: </label>
-      <label id="trickOrTreatersCount" style="color:white">0</label>
       <button id="trickOrTreatersUpgrade1">Upgrade Trick-or-treaters (200 candy)</button><br>
-      <label id="candyFactoriesLabel" style="color:white">Candy Factories: </label>
-      <label id="candyFactoriesCount" style="color:white">0</label>
       <button type="button" id="candyFactoriesUpgrade1">Upgrade Candy Factories (2,000 candy)</button><br>
   </div>
   
