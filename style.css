@@ -70,6 +70,14 @@ cntr {
   line-height: 200%;
 }
 
+.upgrades > button:hover {
+  background-color: #CCCCCC;
+}
+
+.upgrades > button:active {
+  background-color: #DCDCDC;
+}
+
 #trickOrTreatersPrice {
   padding-right: 5%;
 }
