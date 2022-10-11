@@ -117,3 +117,7 @@ cntr {
   right: 0px;
   top: 51%;
 }
+
+#counter {
+  font-size:5vh;
+}
