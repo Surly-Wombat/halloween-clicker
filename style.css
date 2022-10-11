@@ -46,6 +46,10 @@ body {
   font-size: 2vh;
 }
 
+#counter {
+  font-size: 15vh;
+}
+
 cntr {
   text-align:center;
 }
