@@ -50,7 +50,7 @@ var candyFactories = {
 
 var candySynthesizers = {
     price: 6000,
-    displayPrice: "6000",
+    displayPrice: "6,000",
     count: 0,
     rate: 50,
     gain: function() {
