@@ -41,7 +41,7 @@ var candyFactories = {
     },
     upgrade1: function() {
         internalScore -= 2000;
-        perSecond += this.count;
+        perSecond += (this.count * this.rate);
         this.rate *= 2;
         document.getElementById("candyFactoriesUpgrade1").style.display = "none";
         changeDisplays();
@@ -63,7 +63,7 @@ var candySynthesizers = {
     },
     upgrade1: function() {
         internalScore -= 2000;
-        perSecond += this.count;
+        perSecond += (this.count * this.rate);
         this.rate *= 2;
         document.getElementById("candySynthesizersUpgrade1").style.display = "none";
         changeDisplays();
