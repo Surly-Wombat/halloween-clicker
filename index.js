@@ -62,7 +62,7 @@ var candySynthesizers = {
         changeDisplays();
     },
     upgrade1: function() {
-        internalScore -= 2000;
+        internalScore -= 20000;
         perSecond += (this.count * this.rate);
         this.rate *= 2;
         document.getElementById("candySynthesizersUpgrade1").style.display = "none";
