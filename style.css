@@ -58,16 +58,16 @@ cntr {
 }
 
 .anchor {
-  width: 35%;
-  height: 50%;
+  width: 30%;
+  height: 100%;
   position: absolute;
   right: 10px;
   top: 10px;
 }
 
 .upgrades > button {
-  width: 85%;
-  height: 15%;
+  width: 100%;
+  height: 8%;
   border-radius: 3%/18%;
   background-color: #DCDCDC;
   border-style: solid;
@@ -106,19 +106,19 @@ cntr {
 #trickOrTreaters {
   position: absolute;
   right: 0px;
-  top: 17%;
+  top: 2%;
 }
 
 #candyFactories {
   position: absolute;
   right: 0px;
-  top: 34%;
+  top: 12%;
 }
 
 #candySynthesizers {
   position: absolute;
   right: 0px;
-  top: 51%;
+  top: 22%;
 }
 
 #counter {
