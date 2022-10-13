@@ -100,25 +100,25 @@ cntr {
 #clickUpgrade1 {
   position: absolute;
   right: 0px;
-  top: 0%;
+  top: 2%;
 }
 
 #trickOrTreaters {
   position: absolute;
   right: 0px;
-  top: 2%;
+  top: 12%;
 }
 
 #candyFactories {
   position: absolute;
   right: 0px;
-  top: 12%;
+  top: 22%;
 }
 
 #candySynthesizers {
   position: absolute;
   right: 0px;
-  top: 22%;
+  top: 32%;
 }
 
 #counter {
