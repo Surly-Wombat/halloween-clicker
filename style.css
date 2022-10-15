@@ -89,11 +89,11 @@ cntr {
   padding-right: 5%;
 }
 
-#candyFactoriesPrice {
+#candyThievesPrice {
   padding-right: 5%;
 }
 
-#candySynthesizersPrice {
+#candyMachinesPrice {
   padding-right: 5%;
 }
 
@@ -109,13 +109,13 @@ cntr {
   top: 10%;
 }
 
-#candyFactories {
+#candyThieves {
   position: absolute;
   right: 0px;
   top: 19%;
 }
 
-#candySynthesizers {
+#candyMachines {
   position: absolute;
   right: 0px;
   top: 28%;
