@@ -156,8 +156,8 @@ function autoAdd(trickOrTreaters,candyThieves,candyMachines) {
 
 function clickUpgrade1() {
     internalScore -= clickUpgrade1Price;
-    perClick += 1;
-    clickUpgrade1Price = Math.round(clickUpgrade1Price * 1.15);
+    perClick *= 2;
+    clickUpgrade1Price *= 4;
     changeDisplays();
 }
 
