@@ -1,8 +1,3 @@
-.upgradeCounters {
-  position: fixed;
-  left: 0;
-}
-
 button {
   display: none;
 }
@@ -59,15 +54,25 @@ cntr {
 
 .anchor {
   width: 30%;
-  height: 100%;
+  height: 55%;
   position: absolute;
   right: 10px;
   top: 10px;
+  overflow-y: auto;
+}
+
+.upgradeCounters {
+  width: 30%;
+  height: 35%;
+  position: absolute;
+  right: 10px;
+  top: 60vh;
+  overflow-y: auto;
 }
 
 .upgrades > button {
   width: 100%;
-  height: 8%;
+  height: 8vh;
   border-radius: 3%/18%;
   background-color: #DCDCDC;
   border-style: solid;
@@ -75,13 +80,35 @@ cntr {
   border-color: #000000;
   color: #000000;
   line-height: 200%;
+  margin-bottom: 1vh;
+}
+
+.upgradeCounters > button {
+  width: 100%;
+  height: 8vh;
+  border-radius: 3%/18%;
+  background-color: #DCDCDC;
+  border-style: solid;
+  border-width: thin;
+  border-color: #000000;
+  color: #000000;
+  line-height: 200%;
+  margin-bottom: 1vh;
 }
 
 .upgrades > button:hover {
   background-color: #CCCCCC;
 }
 
+.upgradeCounters > button:hover {
+  background-color: #CCCCCC;
+}
+
 .upgrades > button:active {
+  background-color: #DCDCDC;
+}
+
+.upgradeCounters > button:active {
   background-color: #DCDCDC;
 }
 
@@ -95,30 +122,6 @@ cntr {
 
 #candyMachinesPrice {
   padding-right: 5%;
-}
-
-#clickUpgrade1 {
-  position: absolute;
-  right: 0px;
-  top: 1%;
-}
-
-#trickOrTreaters {
-  position: absolute;
-  right: 0px;
-  top: 10%;
-}
-
-#candyThieves {
-  position: absolute;
-  right: 0px;
-  top: 19%;
-}
-
-#candyMachines {
-  position: absolute;
-  right: 0px;
-  top: 28%;
 }
 
 #counter {
