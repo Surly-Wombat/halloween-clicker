@@ -70,14 +70,36 @@ var candyMachines = {
     }
 }
 
-window.setInterval(autoAdd,10,trickOrTreaters,candyThieves,candyMachines);
+var candyFactories = {
+    price: 66000,
+    displayPrice: "66,000",
+    count: 0,
+    rate: 350,
+    gain: function() {
+        internalScore -= this.price;
+        perSecond += this.rate;
+        this.count += 1;
+        this.price = Math.round(this.price * 1.15);
+        this.displayPrice = this.price.toLocaleString("en-US");
+        changeDisplays();
+    },
+    upgrade1: function() {
+        internalScore -= 200000;
+        perSecond += (this.count * this.rate);
+        this.rate *= 2;
+        document.getElementById("candyFactoriesUpgrade1").style.display = "none";
+        changeDisplays();
+    }
+}
+
+window.setInterval(autoAdd,10,trickOrTreaters,candyThieves,candyMachines,candyFactories);
 
 document.getElementById("addButton").onclick = function() {
-    add(trickOrTreaters,candyThieves,candyMachines);
+    add(trickOrTreaters,candyThieves,candyMachines,candyFactories);
 }
 
 document.getElementById("saveButton").onclick = function() {
-    saveGame(trickOrTreaters,candyThieves,candyMachines);
+    saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories);
 }
 
 document.getElementById("clickUpgrade1").onclick = function() {
@@ -122,6 +144,18 @@ document.getElementById("candyMachinesUpgrade1").onclick = function() {
     }
 }
 
+document.getElementById("candyFactories").onclick = function() {
+    if(internalScore >= candyFactories.price) {
+        candyFactories.gain();
+    }
+}
+
+document.getElementById("candyFactoriesUpgrade1").onclick = function() {
+    if(internalScore >= 200000) {
+        candyFactories.upgrade1();
+    }
+}
+
 function changeDisplays() {
     displayScore();
     document.getElementById("perClickLabel").innerHTML = "Per Click: "+perClick;
@@ -133,6 +167,8 @@ function changeDisplays() {
     document.getElementById("candyThievesCount").innerHTML = `Count: ${candyThieves.count}`;
     document.getElementById("candyMachinesPrice").innerHTML = `Price: ${candyMachines.displayPrice} candy`;
     document.getElementById("candyMachinesCount").innerHTML = `Count: ${candyMachines.count}`;
+    document.getElementById("candyFactoriesPrice").innerHTML = `Price: ${candyFactories.displayPrice} candy`;
+    document.getElementById("candyFactoriesCount").innerHTML = `Count: ${candyFactories.count}`;
 }
 
 function displayScore() {
@@ -141,16 +177,16 @@ function displayScore() {
   document.getElementById("counter").innerHTML = score;
 }
 
-function add(trickOrTreaters,candyThieves,candyMachines) {
+function add(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
     internalScore += perClick;
-    checkUnlocks(trickOrTreaters,candyThieves,candyMachines);
+    checkUnlocks(trickOrTreaters,candyThieves,candyMachines,candyFactories);
     changeDisplays();
 }
 
-function autoAdd(trickOrTreaters,candyThieves,candyMachines) {
+function autoAdd(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
   let addHundredth = (perSecond / 100);
   internalScore += addHundredth;
-  checkUnlocks(trickOrTreaters,candyThieves,candyMachines);
+  checkUnlocks(trickOrTreaters,candyThieves,candyMachines,candyFactories);
   changeDisplays();
 }
 
@@ -183,9 +219,15 @@ function checkUnlocks(trickOrTreaters,candyThieves) {
   if((internalScore >= 10000)&&(candyMachines.rate == 50)) {
     document.getElementById("candyMachinesUpgrade1").style.display = "inline";
   }
+  if(internalScore >= 33000) {
+    document.getElementById("candyFactories").style.display = "inline";
+  }
+  if((internalScore >= 100000)&&(candyFactories.rate == 350)) {
+    document.getElementById("candyFactoriesUpgrade1").style.display = "inline";
+  }
 }
 
-function saveGame(trickOrTreaters,candyThieves,candyMachines) {
+function saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
     var gameSave = {
         score: score,
         internalScore: internalScore,
@@ -194,7 +236,8 @@ function saveGame(trickOrTreaters,candyThieves,candyMachines) {
         clickUpgrade1Price: clickUpgrade1Price,
         trickOrTreaters: trickOrTreaters,
         candyThieves: candyThieves,
-        candyMachines: candyMachines
+        candyMachines: candyMachines,
+        candyFactories: candyFactories
     }
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
 }
@@ -218,11 +261,15 @@ function loadGame() {
     if (typeof savedGame.candyMachines.displayPrice !== "undefined") candyMachines.displayPrice = savedGame.candyMachines.displayPrice;
     if (typeof savedGame.candyMachines.rate !== "undefined") candyMachines.rate = savedGame.candyMachines.rate;
     if (typeof savedGame.candyMachines.count !== "undefined") candyMachines.count = savedGame.candyMachines.count;
+    if (typeof savedGame.candyFactories.price !== "undefined") candyFactories.price = savedGame.candyFactories.price;
+    if (typeof savedGame.candyFactories.displayPrice !== "undefined") candyFactories.displayPrice = savedGame.candyFactories.displayPrice;
+    if (typeof savedGame.candyFactories.rate !== "undefined") candyFactories.rate = savedGame.candyFactories.rate;
+    if (typeof savedGame.candyFactories.count !== "undefined") candyFactories.count = savedGame.candyFactories.count;
 }
 
-window.onload = function(trickOrTreaters,candyThieves,candyMachines) {
+window.onload = function(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
     loadGame();
-    autoAdd(trickOrTreaters,candyThieves,candyMachines);
+    autoAdd(trickOrTreaters,candyThieves,candyMachines,candyFactories);
 }
 
-window.setInterval(saveGame,30000,trickOrTreaters,candyThieves,candyMachines)
+window.setInterval(saveGame,30000,trickOrTreaters,candyThieves,candyMachines,candyFactories)
