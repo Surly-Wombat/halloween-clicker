@@ -124,6 +124,10 @@ document.getElementById("saveButton").onclick = function() {
     saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers);
 }
 
+document.getElementById("resetButton").onclick = function() {
+    resetGame();
+}
+
 document.getElementById("clickUpgrade1").onclick = function() {
     if(internalScore >= clickUpgrade1Price) {
         clickUpgrade1();
@@ -283,6 +287,13 @@ function saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories,cand
         candySynthesizers: candySynthesizers
     }
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
+}
+
+function resetGame() {
+    if(confirm("Are you sure you want to reset?") == true) {
+        localStorage.clear();
+        location.reload();
+    }
 }
 
 function loadGame() {
