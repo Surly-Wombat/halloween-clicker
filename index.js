@@ -92,14 +92,36 @@ var candyFactories = {
     }
 }
 
-window.setInterval(autoAdd,10,trickOrTreaters,candyThieves,candyMachines,candyFactories);
+var candySynthesizers = {
+    price: 725000,
+    displayPrice: "725,000",
+    count: 0,
+    rate: 2500,
+    gain: function() {
+        internalScore -= this.price;
+        perSecond += this.rate;
+        this.count += 1;
+        this.price = Math.round(this.price * 1.15);
+        this.displayPrice = this.price.toLocaleString("en-US");
+        changeDisplays();
+    },
+    upgrade1: function() {
+        internalScore -= 2000000;
+        perSecond += (this.count * this.rate);
+        this.rate *= 2;
+        document.getElementById("candySynthesizersUpgrade1").style.display = "none";
+        changeDisplays();
+    }
+}
+
+window.setInterval(autoAdd,10,trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers);
 
 document.getElementById("addButton").onclick = function() {
-    add(trickOrTreaters,candyThieves,candyMachines,candyFactories);
+    add(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers);
 }
 
 document.getElementById("saveButton").onclick = function() {
-    saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories);
+    saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers);
 }
 
 document.getElementById("clickUpgrade1").onclick = function() {
@@ -156,6 +178,18 @@ document.getElementById("candyFactoriesUpgrade1").onclick = function() {
     }
 }
 
+document.getElementById("candySynthesizers").onclick = function() {
+    if(internalScore >= candySynthesizers.price) {
+        candySynthesizers.gain();
+    }
+}
+
+document.getElementById("candySynthesizersUpgrade1").onclick = function() {
+    if(internalScore >= 2000000) {
+        candySynthesizers.upgrade1();
+    }
+}
+
 function changeDisplays() {
     displayScore();
     document.getElementById("perClickLabel").innerHTML = "Per Click: "+perClick;
@@ -169,6 +203,8 @@ function changeDisplays() {
     document.getElementById("candyMachinesCount").innerHTML = `Count: ${candyMachines.count}`;
     document.getElementById("candyFactoriesPrice").innerHTML = `Price: ${candyFactories.displayPrice} candy`;
     document.getElementById("candyFactoriesCount").innerHTML = `Count: ${candyFactories.count}`;
+    document.getElementById("candySynthesizersPrice").innerHTML = `Price: ${candySynthesizers.displayPrice} candy`;
+    document.getElementById("candySynthesizersCount").innerHTML = `Count: ${candySynthesizers.count}`;
 }
 
 function displayScore() {
@@ -177,16 +213,16 @@ function displayScore() {
   document.getElementById("counter").innerHTML = score;
 }
 
-function add(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
+function add(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers) {
     internalScore += perClick;
-    checkUnlocks(trickOrTreaters,candyThieves,candyMachines,candyFactories);
+    checkUnlocks(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers);
     changeDisplays();
 }
 
-function autoAdd(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
+function autoAdd(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers) {
   let addHundredth = (perSecond / 100);
   internalScore += addHundredth;
-  checkUnlocks(trickOrTreaters,candyThieves,candyMachines,candyFactories);
+  checkUnlocks(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers);
   changeDisplays();
 }
 
@@ -225,9 +261,15 @@ function checkUnlocks(trickOrTreaters,candyThieves) {
   if((internalScore >= 100000)&&(candyFactories.rate == 350)) {
     document.getElementById("candyFactoriesUpgrade1").style.display = "inline";
   }
+  if(internalScore >= 360000) {
+    document.getElementById("candySynthesizers").style.display = "inline";
+  }
+  if((internalScore >= 1000000)&&(candySynthesizers.rate == 2500)) {
+    document.getElementById("candySynthesizersUpgrade1").style.display = "inline";
+  }
 }
 
-function saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
+function saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers) {
     var gameSave = {
         score: score,
         internalScore: internalScore,
@@ -237,7 +279,8 @@ function saveGame(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
         trickOrTreaters: trickOrTreaters,
         candyThieves: candyThieves,
         candyMachines: candyMachines,
-        candyFactories: candyFactories
+        candyFactories: candyFactories,
+        candySynthesizers: candySynthesizers
     }
     localStorage.setItem("gameSave", JSON.stringify(gameSave));
 }
@@ -265,11 +308,15 @@ function loadGame() {
     if (typeof savedGame.candyFactories.displayPrice !== "undefined") candyFactories.displayPrice = savedGame.candyFactories.displayPrice;
     if (typeof savedGame.candyFactories.rate !== "undefined") candyFactories.rate = savedGame.candyFactories.rate;
     if (typeof savedGame.candyFactories.count !== "undefined") candyFactories.count = savedGame.candyFactories.count;
+    if (typeof savedGame.candySynthesizers.price !== "undefined") candySynthesizers.price = savedGame.candySynthesizers.price;
+    if (typeof savedGame.candySynthesizers.displayPrice !== "undefined") candySynthesizers.displayPrice = savedGame.candySynthesizers.displayPrice;
+    if (typeof savedGame.candySynthesizers.rate !== "undefined") candySynthesizers.rate = savedGame.candySynthesizers.rate;
+    if (typeof savedGame.candySynthesizers.count !== "undefined") candySynthesizers.count = savedGame.candySynthesizers.count;
 }
 
-window.onload = function(trickOrTreaters,candyThieves,candyMachines,candyFactories) {
+window.onload = function(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers) {
     loadGame();
-    autoAdd(trickOrTreaters,candyThieves,candyMachines,candyFactories);
+    autoAdd(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers);
 }
 
-window.setInterval(saveGame,30000,trickOrTreaters,candyThieves,candyMachines,candyFactories)
+window.setInterval(saveGame,30000,trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers)
