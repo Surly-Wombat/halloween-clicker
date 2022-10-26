@@ -196,8 +196,8 @@ document.getElementById("candySynthesizersUpgrade1").onclick = function() {
 
 function changeDisplays() {
     displayScore();
-    document.getElementById("perClickLabel").innerHTML = "Per Click: "+perClick;
-    document.getElementById("perSecondLabel").innerHTML = "Per Second: "+perSecond;
+    document.getElementById("perClickLabel").innerHTML = `Per Click: ${perClick.toLocaleString("en-US")}`;
+    document.getElementById("perSecondLabel").innerHTML = `Per Second: ${perSecond.toLocaleString("en-US")}`;
     document.getElementById("clickUpgrade1").innerHTML = `Get a bigger bucket (${clickUpgrade1Price.toLocaleString("en-US")} candy)`
     document.getElementById("trickOrTreatersPrice").innerHTML = `Price: ${trickOrTreaters.displayPrice} candy`;
     document.getElementById("trickOrTreatersCount").innerHTML = `Count: ${trickOrTreaters.count}`;
