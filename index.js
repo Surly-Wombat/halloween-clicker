@@ -237,35 +237,35 @@ function clickUpgrade1() {
     changeDisplays();
 }
 
-function checkUnlocks(trickOrTreaters,candyThieves) {
+function checkUnlocks(trickOrTreaters,candyThieves,candyMachines,candyFactories,candySynthesizers) {
   if(internalScore >= 10) {
     document.getElementById("clickUpgrade1").style.display = "inline";
   }
-  if(internalScore >= 30) {
+  if(internalScore >= 30 || trickOrTreaters.count > 0) {
     document.getElementById("trickOrTreaters").style.display = "inline";
   }
   if((internalScore >= 100)&&(trickOrTreaters.rate == 1)) {
     document.getElementById("trickOrTreatersUpgrade1").style.display = "inline";
   }
-  if(internalScore >= 300) {
+  if(internalScore >= 300 || candyThieves.count > 0) {
     document.getElementById("candyThieves").style.display = "inline";
   }
   if((internalScore >= 1000)&&(candyThieves.rate == 7)) {
     document.getElementById("candyThievesUpgrade1").style.display = "inline";
   }
-  if(internalScore >= 3000) {
+  if(internalScore >= 3000 || candyMachines.count > 0) {
     document.getElementById("candyMachines").style.display = "inline";
   }
   if((internalScore >= 10000)&&(candyMachines.rate == 50)) {
     document.getElementById("candyMachinesUpgrade1").style.display = "inline";
   }
-  if(internalScore >= 33000) {
+  if(internalScore >= 33000 || candyFactories.count > 0) {
     document.getElementById("candyFactories").style.display = "inline";
   }
   if((internalScore >= 100000)&&(candyFactories.rate == 350)) {
     document.getElementById("candyFactoriesUpgrade1").style.display = "inline";
   }
-  if(internalScore >= 360000) {
+  if(internalScore >= 360000 || candySynthesizers.count > 0) {
     document.getElementById("candySynthesizers").style.display = "inline";
   }
   if((internalScore >= 1000000)&&(candySynthesizers.rate == 2500)) {
