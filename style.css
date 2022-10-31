@@ -121,23 +121,7 @@ cntr {
   background-color: #DCDCDC;
 }
 
-#trickOrTreatersPrice {
-  padding-right: 5%;
-}
-
-#candyThievesPrice {
-  padding-right: 5%;
-}
-
-#candyMachinesPrice {
-  padding-right: 5%;
-}
-
-#candyFactoriesPrice {
-  padding-right: 5%;
-}
-
-#candySynthesizersPrice {
+.price {
   padding-right: 5%;
 }
 
