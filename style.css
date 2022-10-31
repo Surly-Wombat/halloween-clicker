@@ -36,6 +36,7 @@ body {
   top: 35%;
   animation-name: candyIdle;
   animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 
 #statsDiv {
