@@ -35,8 +35,9 @@ body {
   left: 30%;
   top: 35%;
   animation-name: candyIdle;
-  animation-duration: 4s;
+  animation-duration: 3s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 #statsDiv {
