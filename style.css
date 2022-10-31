@@ -13,7 +13,7 @@ body {
   background-size: cover;
 }
 
-@keyframes candyHover {
+@keyframes candyIdle {
   0% {transform: scale(1);}
   25% {transform: scale(1.01);}
   75% {transform: scale(0.99);}
@@ -34,6 +34,8 @@ body {
   position: absolute;
   left: 30%;
   top: 35%;
+  animation-name: candyIdle;
+  animation-duration: 4s;
 }
 
 #statsDiv {
