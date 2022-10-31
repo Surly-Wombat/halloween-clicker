@@ -82,7 +82,7 @@ cntr {
   color: #000000;
   line-height: 200%;
   margin-bottom: 1vh;
-  font-size: 95%;
+  font-size: 100%;
 }
 
 .upgradeCounters > button {
@@ -96,6 +96,7 @@ cntr {
   color: #000000;
   line-height: 200%;
   margin-bottom: 1vh;
+  font-size: 100%;
 }
 
 .upgrades > button > img {
