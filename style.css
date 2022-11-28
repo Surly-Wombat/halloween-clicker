@@ -20,6 +20,20 @@ body {
   100% {transform: scale(1);}
 }
 
+@keyframes candyHover {
+  0% {transform: scale(1.2);}
+  10% {transform: scale(1.1);}
+  20% {transform: scale(1.19);}
+  30% {transform: scale(1.11);}
+  40% {transform: scale(1.18);}
+  50% {transform: scale(1.12);}
+  60% {transform: scale(1.17);}
+  70% {transform: scale(1.13);}
+  80% {transform: scale(1.16);}
+  90% {transform: scale(1.14);}
+  100% {transform: scale(1.15);}
+}
+
 #addButton:hover {
   transform: scale(1.15)
 }  
@@ -34,8 +48,8 @@ body {
   position: absolute;
   left: 30%;
   top: 35%;
-  animation-name: candyIdle;
-  animation-duration: 2s;
+  animation-name: /*candyIdle*/candyHover;
+  animation-duration: /*2s*/4s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
